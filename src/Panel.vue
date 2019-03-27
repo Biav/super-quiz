@@ -6,7 +6,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-6 result" v-for="item in totalQuiz">
-                    <button class="btn btn-lg btn-primary">{{ item }}</button>
+                    <button class="btn btn-lg btn-primary" @click="checkResult">{{ item }}</button>
                 </div>
             </div>
         </div>
@@ -27,6 +27,9 @@
         methods: {
             createNumber(max, min) {
                 return  Math.round(Math.random() * (max - min) + min);
+            },
+            checkResult(){
+                
             }
         },
         computed: {
