@@ -6,6 +6,7 @@
             </div>
             <div class="panel-body">
                 {{ result }}
+                <button class="btn btn-sm btn-default" @click="back(total)">Voltar</button>
             </div>
         </div>
     </div>
@@ -14,6 +15,11 @@
 <script>
     export default {
         props: ["total"],
+        methods: {
+            back(total) {
+                this.$emit('voltar', total);
+            }
+        },
         computed: {
             title() {
                 return (this.total > 0) ? "Right Answer" : "Wrong Answer";
@@ -37,5 +43,11 @@
         width: 50%;
         margin-top:40px;
         text-align: center;
+    }
+
+    button {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
     }
 </style>

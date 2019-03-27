@@ -6,11 +6,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-md-6 result" v-for="item in totalQuiz">
-<<<<<<< HEAD
-                    <button class="btn btn-lg btn-primary" @click="checkResult">{{ item }}</button>
-=======
                     <button class="btn btn-lg btn-primary" @click="result(item, $event)">{{ item }}</button>
->>>>>>> 3a1eff54042e38fc3d24c1e855d068b07d33c99d
                 </div>
             </div>
         </div>
@@ -60,7 +56,6 @@
 
                 this.results.sort(function() { return 0.5 - Math.random() });
 
-                
                 return this.results;
             }
         }

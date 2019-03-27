@@ -1,8 +1,8 @@
 <template>
   <div>
     <app-header></app-header>
-    <transition name="fade" appear>
-      <component :is="quiz" @result="result" :total="total"></component>
+    <transition name="fade" mode="out-in">
+      <component :is="quiz" @voltar="voltar" @result="result" :total="total"></component>
     </transition>
   </div>
 </template>
@@ -24,9 +24,9 @@ export default {
     result(result, total) {
       this.total = (result)?total:false;
       this.quiz = 'app-result';
-      setTimeout(function(){
-        this.quiz = 'app-panel';
-      },10);
+    },
+    voltar(total) {
+      this.quiz = 'app-panel';
     }
   },
   components: {
@@ -40,11 +40,11 @@ export default {
 <style lang="scss">
   .fade-enter-active, .fade-leave-active {
     transition: all 0.5s ease-out;
-    rotate: 60deg;
+    transform: rotateY(90deg);
   }
 
   .fade-enter, .fade-leave-to {
       opacity: 0;
-      rotate: 0;
+      transform: rotateY(0deg);
   }
 </style>
